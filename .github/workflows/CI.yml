@@ -19,8 +19,10 @@ jobs:
         run: docker image build --tag="${IMAGE_NAME}" ./web-project/
       - name: run container
         run: docker container run -d -p 4173:4173 --name "${CONTAINER_NAME}" "${IMAGE_NAME}"
+      - name: Wait container startup
+        run: sleep 10
       - name: http test request
         run: |
-          curl --url http://localhost:4173/
+          curl http://127.0.0.1:4173/
       - name: stop container
         run: docker container stop "${CONTAINER_NAME}"
