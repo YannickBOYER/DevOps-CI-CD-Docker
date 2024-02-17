@@ -18,9 +18,13 @@ jobs:
           dockerfile: web-project/Dockerfile
       - name: Setup Node
         uses: actions/setup-node@v2
+      - name: Wait setup
+        run: sleep 10
       - name: Install npm dependencies
         run: npm install
         working-directory: ./web-project
+      - name: Wait setup
+        run: sleep 5
       - name: Lint npm
         run: npm run lint
         working-directory: ./web-project
