@@ -1,0 +1,16 @@
+# CI.yml
+name: CI
+on:
+  - pull_request
+jobs:   
+  ci_web_project:
+    runs-on: ubuntu-22.04
+    env:
+      IMAGE_NAME: "web-project"
+    steps:
+      - uses: actions/checkout@v3
+      - uses: hadolint/hadolint-action@v3.1.0
+        with:
+          dockerfile: web-project/Dockerfile
+      - run: docker image build --tag="${IMAGE_NAME}" ./web-project/
+      - run: docker container run --rm "${IMAGE_NAME}" npm run lint
