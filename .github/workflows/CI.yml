@@ -6,11 +6,20 @@ jobs:
   ci_web_project:
     runs-on: ubuntu-22.04
     env:
-      IMAGE_NAME: "web-project"
+      IMAGE_NAME: "web-project-image"
+      CONTAINER_NAME: "web-project-container"
     steps:
-      - uses: actions/checkout@v3
-      - uses: hadolint/hadolint-action@v3.1.0
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: hadolint
+        uses: hadolint/hadolint-action@v3.1.0
         with:
           dockerfile: web-project/Dockerfile
-      - run: docker image build --tag="${IMAGE_NAME}" ./web-project/
-      - run: docker container run --rm "${IMAGE_NAME}" npm run lint
+      - name: build image
+        run: docker image build --tag="${IMAGE_NAME}" ./web-project/
+      - name: run container
+        run: docker container run -d -p 4173:4173 --name "${CONTAINER_NAME}" "${IMAGE_NAME}"
+      - name: http test request
+        run: curl http://localhost:4173/
+      - name: stop container
+        run: docker container stop "${CONTAINER_NAME}"
