@@ -18,6 +18,7 @@ jobs:
           dockerfile: web-project/Dockerfile
       - name: Setup Node
         uses: actions/setup-node@v4
+        working-directory: ./web-project
       - name: Install npm dependencies
         run: npm install
         working-directory: ./web-project
