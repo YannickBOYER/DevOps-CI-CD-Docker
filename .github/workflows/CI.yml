@@ -21,6 +21,6 @@ jobs:
         run: docker container run -d -p 4173:4173 --name "${CONTAINER_NAME}" "${IMAGE_NAME}"
       - name: http test request
         run: |
-          curl http://127.0.0.1:4173/
+          curl --url http://localhost:4173/
       - name: stop container
         run: docker container stop "${CONTAINER_NAME}"
