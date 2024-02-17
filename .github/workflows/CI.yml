@@ -16,6 +16,8 @@ jobs:
         uses: hadolint/hadolint-action@v3.1.0
         with:
           dockerfile: web-project/Dockerfile
+      - name: Setup Node
+        uses: actions/setup-node@v4
       - name: Install npm dependencies
         run: npm install
         working-directory: ./web-project
