@@ -15,6 +15,7 @@ jobs:
         uses: actions/setup-node@v4
       - name: Install dependencies
         run: npm install
+        working-directory: web-project
       - name: Lint npm
         run: npm run lint
         working-directory: web-project/
