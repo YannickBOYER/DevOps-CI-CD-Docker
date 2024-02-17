@@ -13,6 +13,8 @@ jobs:
           dockerfile: web-project/Dockerfile
       - name: Setup Node
         uses: actions/setup-node@v4
+      - name: Install dependencies
+        run: npm install
       - name: Lint npm
         run: npm run lint
         working-directory: web-project/
