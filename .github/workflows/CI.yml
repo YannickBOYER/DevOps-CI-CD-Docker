@@ -12,16 +12,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Setup Node for npm
-        uses: actions/setup-node@v4
       - name: Hadolint
         uses: hadolint/hadolint-action@v3.1.0
         with:
           dockerfile: web-project/Dockerfile
       - name: Install npm dependencies
         run: npm install
+        working-directory: ./web-project
       - name: Lint npm
         run: npm run lint
+        working-directory: ./web-project
       - name: build image
         run: docker image build --tag="${IMAGE_NAME}" ./web-project/
       - name: run container
