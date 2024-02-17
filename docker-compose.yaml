@@ -1,0 +1,10 @@
+name: web-project-vue
+services:
+  front:
+    build:
+      context: ./web-project
+    environment:
+      NODE_ENV: production
+    ports:
+      - 4173:4173
+    container_name: web-project
