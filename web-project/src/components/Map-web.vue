@@ -13,7 +13,7 @@
 <script setup>
 import axios from 'axios';
 import { ref } from 'vue'; // Importation de la fonction ref
-import Form from './Form.vue';
+import Form from './Form-web.vue';
 
 const loading = ref(false); // Création d'une référence réactive pour gérer l'état de chargement
 

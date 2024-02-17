@@ -1,5 +1,5 @@
 <script setup>
-import Map from './components/Map.vue'
+import Map from './components/Map-web.vue'
 </script>
 
 <template>
