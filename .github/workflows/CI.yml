@@ -38,3 +38,5 @@ jobs:
         run: curl http://127.0.0.1:"${CONTAINER_PORT}"/
       - name: stop container
         run: docker container stop "${CONTAINER_NAME}"
+      - name: remove container
+        run: docker container rm "${CONTAINER_NAME}"
