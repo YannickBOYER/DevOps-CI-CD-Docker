@@ -1,7 +1,13 @@
 name: CICD
 on:
-  - push
-  - pull_request
+  push:
+    branches: 
+      - main
+    tags:
+      - 'v*'
+  pull_request:
+    branches:
+      - '*'
 jobs: 
   lint:
     runs-on: ubuntu-22.04
