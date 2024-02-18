@@ -32,6 +32,7 @@ jobs:
         run: docker image build --tag="${IMAGE_NAME}" ./web-project/
       - name: run container
         run: docker container run -d -p "${CONTAINER_PORT}":4173 --name "${CONTAINER_NAME}" "${IMAGE_NAME}"
+      - run: pwd
       - name: Wait container startup
         run: sleep 5
       - name: http test request
