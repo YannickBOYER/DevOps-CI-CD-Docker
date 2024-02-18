@@ -1,11 +1,7 @@
 name: CICD
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - '*'
+  - push
+  - pull_request
 jobs: 
   lint:
     runs-on: ubuntu-22.04
@@ -46,7 +42,7 @@ jobs:
       - name: remove container
         run: docker container rm "${CONTAINER_NAME}"
   deploy:
-    if: github.event_name == 'push'
+    if: github.event_name == 'push' && contains('refs/heads/main', github.ref)
     runs-on: ubuntu-22.04
     needs: [lint,docker_test]
     steps:
