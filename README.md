@@ -104,15 +104,16 @@ docker container rm web-project-container
 Un déploiement continu est implémenté dans ce projet.
 
 Ce processus intervient uniquement lors d'un `push` sur la branche principale, donc lors de la validation d'une PR. \
-Lors de cette étape, l'image générée avec le `Dockerfile` est poussé sur `Docker Hub`, un service permettant de stocker et partager des images Docker.
+Lors de cette étape, l'image générée avec le `Dockerfile` est poussée sur `DockerHub`, un service permettant de stocker et partager des images Docker. \
+L'image sera alors marquée avec le tag `main`.
 
 ### Continuous Delivery
 
 Nous avons aussi intégré un processus de livraison continue à ce projet.
 
 Ce processus est déclenché à la suite de la création d'un tag sur le repository. \
-Important : Ce tag est une version de l'image, il doit respecter une convention de nommage `v*` (commencer par la lettre v). \
-Dès lors que ce tag est créé, l'image sera poussé automatiquement sur `DockerHub` avec le tag créé.
+Important : Ce tag correspond à une version de l'image, il doit respecter une convention de nommage `v*` (commencer par la lettre v). \
+Dès lors que ce tag est créé, l'image sera poussé automatiquement sur `DockerHub` marquée avec le tag choisi.
 
 ## Contributeurs
 
