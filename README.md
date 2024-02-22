@@ -67,7 +67,7 @@ env:
     CONTAINER_PORT: "4173"
 ```
 
-Plusieurs étapes sont définies dans la CI, chacune d'entre elles doivent se dérouler sans erreur ppour que la CI soit validée:
+Plusieurs étapes sont définies dans la CI, chacune d'entre elles doit se dérouler sans erreur pour que la CI soit validée:
 
 ### Analyse du code
 
@@ -113,7 +113,7 @@ Nous avons aussi intégré un processus de livraison continue à ce projet.
 
 Ce processus est déclenché à la suite de la création d'un tag sur le repository. \
 Important : Ce tag correspond à une version de l'image, il doit respecter une convention de nommage `v*` (commencer par la lettre v). \
-Dès lors que ce tag est créé, l'image sera poussé automatiquement sur `DockerHub` marquée avec le tag choisi.
+Dès lors que ce tag est créé, l'image sera poussée automatiquement sur `DockerHub` marquée avec le tag choisi.
 
 ## Contributeurs
 
